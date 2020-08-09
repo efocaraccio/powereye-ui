@@ -1,0 +1,24 @@
+
+ .home{
+   display: flex;
+   flex-direction: column;
+   width: 80%;
+
+   .button-group{
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    .ant-row{
+      width: 100%;
+    }
+   }
+
+ }
+
+ .title-card{
+   width: 100%;
+   border-radius: 8px;
+   box-shadow: -2px 2px 6px #7b7b7b;
+   text-align: center;
+ }

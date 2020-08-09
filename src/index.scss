@@ -1,0 +1,18 @@
+@import "~antd/dist/antd.css";
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-image: linear-gradient(90deg,#49bcdee0 0,#46a1fddb 55%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
