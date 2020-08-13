@@ -1,0 +1,10 @@
+.indicator-group{
+  text-align: center;
+  margin-top: 20px;
+  .indicator-row{
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

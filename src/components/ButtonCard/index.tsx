@@ -8,9 +8,9 @@ const { Title } = Typography;
 
 export const ButtonCard = (props: ButtonCardProps) => {
 
-  const { title, image, onClick } = props;
+  const { title, image } = props;
 
-  return <Card className={'buttom-card'} onClick={onClick}>
+  return <Card hoverable className={'buttom-card'}>
     <img alt={title} src={ image === 'chart' ? ChartImage : ConfigImage } />
     <Title level={3}>{title}</Title>
   </Card>;
@@ -20,5 +20,4 @@ export const ButtonCard = (props: ButtonCardProps) => {
 export interface ButtonCardProps {
   title: string;
   image: string;
-  onClick: () => void;
 }

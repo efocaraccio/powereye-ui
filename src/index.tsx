@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './layouts/App/App';
+
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ChartsPage } from './layouts/ChartsPage';
 
 const routing = (
   <Router>
@@ -11,6 +13,8 @@ const routing = (
       <Route exact path='/' component={App} />
       <Route path='/login' component={App} />
       <Route path='/register' component={App} />
+      <Route path='/charts' component={ChartsPage} />
+      <Route path='/config' component={ChartsPage} />
     </div>
   </Router>
 );

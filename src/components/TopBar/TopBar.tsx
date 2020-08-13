@@ -1,11 +1,9 @@
 import React from 'react';
-import { Button, Dropdown, Menu, Typography, Space } from 'antd';
+import { Dropdown, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import './TopBar.scss';
 import logo from '../../assets/logo.svg';
 import { Link } from 'react-router-dom';
-
-const { Title } = Typography;
 
 const menu = ( // TODO: dinamizar nombre de usuario
   <Menu>

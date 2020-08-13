@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Typography, Divider, Row, Col } from 'antd';
 import './index.scss';
 import { ButtonCard } from '../../components/ButtonCard';
+import { Link } from 'react-router-dom';
 
 const { Title } = Typography;
 
@@ -14,8 +15,12 @@ export const Home = () => {
     <Divider />
     <div className={'button-group'}>
     <Row>
-      <Col span={12}><ButtonCard image={'chart'} title={'Estadísticas'} onClick={() => {}}/></Col>
-      <Col span={12}><ButtonCard image={'config'} title={'Configurar mi vidriera'} onClick={() => {}}/></Col>
+      <Col span={12}>
+        <Link to='/charts'><ButtonCard image={'chart'} title={'Estadísticas'}/></Link>
+        </Col>
+      <Col span={12}>
+        <Link to='/config' ><ButtonCard image={'config'} title={'Configurar mi vidriera'}/></Link>
+        </Col>
     </Row>
 
     </div>
