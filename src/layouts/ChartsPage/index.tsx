@@ -16,9 +16,9 @@ export const ChartsPage = () => {
   </Header>
   <Content className={'charts-page'}>
     <IndicatorGroup/>
-    <Divider style={{margin: '30px'}}/>
+    <Divider/>
+    <ChartGroup/>
   </Content>
-  <ChartGroup/>
 </Layout>;
 
 };

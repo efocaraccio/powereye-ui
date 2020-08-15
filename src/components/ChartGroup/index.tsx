@@ -1,55 +1,21 @@
 import React from 'react';
-import { Column } from '@ant-design/charts';
+import { Columna, Torta, Linea } from '../Chart/index';
+import { Typography, Card } from 'antd';
+import './index.scss';
 
-const data = [
-  {
-    type: 'asd',
-    sales: 38,
-  },
-  {
-    type: 'dfg',
-    sales: 52,
-  },
-  {
-    type: 'ghj',
-    sales: 61,
-  },
-  {
-    type: 'zxc',
-    sales: 145,
-  },
-  {
-    type: 'cvb',
-    sales: 48,
-  },
-];
+const { Title } = Typography;
 
 export const ChartGroup = () => {
 
-
-  const config = {
-    title: {
-      visible: true,
-      text: 'El titulo del grafico',
-    },
-    description: {
-      visible: true,
-      text:
-        'descrionc lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor',
-    },
-    forceFit: true,
-    data,
-    padding: 'auto',
-    xField: 'type',
-    yField: 'sales',
-    meta: {
-      type: { alias: 'texto horizontal' },
-      sales: { alias: 'texto vertical' },
-    },
-    label: {
-      visible: true,
-      position: 'middle',
-    },
-  };
-  return <Column {...config} />;
+  return <div className={'chart-group'}>
+    <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
+      <Linea title={'Vistas de productos por día'} />
+    </Card>
+    <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
+      <Torta title={'Vistas por producto'} />
+    </Card>
+    <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
+      <Columna title={'Vistas totales por producto'} />
+    </Card>
+  </div>;
 };
