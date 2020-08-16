@@ -6,13 +6,13 @@ import App from './layouts/App/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ChartsPage } from './layouts/ChartsPage';
+import { Login } from './layouts/Login';
 
 const routing = (
   <Router>
     <div>
       <Route exact path='/' component={App} />
-      <Route path='/login' component={App} />
-      <Route path='/register' component={App} />
+      <Route path='/login' component={Login} />
       <Route path='/charts' component={ChartsPage} />
       <Route path='/config' component={ChartsPage} />
     </div>
