@@ -21,9 +21,9 @@ const routing = (
 );
 
 ReactDOM.render(
-  <React.StrictMode>
+  <div>
     {routing}
-  </React.StrictMode>,
+  </div>,
   document.getElementById('root')
 );
 

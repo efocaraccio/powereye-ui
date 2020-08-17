@@ -3,6 +3,7 @@ import './index.scss';
 import { Button, Layout, Divider } from 'antd';
 import { TopBar } from '../../components/TopBar/TopBar';
 import { ConfigNavigator } from '../../components/ConfigNavigator';
+import { Showcase } from '../../components/Showcase';
 
 const { Header, Content } = Layout;
 
@@ -28,7 +29,7 @@ export const ConfigPage = () => {
     if(page === CONFIG_PAGES.PRODUCTS)
       return <div></div>;
     if(page === CONFIG_PAGES.SHOWCASE)
-      return <div></div>;
+      return <Showcase/>;
     return <div></div>;
   }
 

@@ -1,0 +1,33 @@
+.showcase{
+  margin: auto;
+  width: 85%;
+}
+
+body{
+  background-image: none;
+  background-color: #eff2f5;
+}
+
+.sector-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/glass.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+}
+
+.fixed-index{
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
+.text-option {
+  padding: 7px;
+  border-radius: 10px;
+  color: darkcyan;
+  font-size: 26px;
+  border: 1px solid;
+}
