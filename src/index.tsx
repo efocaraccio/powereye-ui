@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ChartsPage } from './layouts/ChartsPage';
 import { Login } from './layouts/Login';
+import { ConfigPage } from './layouts/ConfigPage';
 
 const routing = (
   <Router>
@@ -14,7 +15,7 @@ const routing = (
       <Route exact path='/' component={App} />
       <Route path='/login' component={Login} />
       <Route path='/charts' component={ChartsPage} />
-      <Route path='/config' component={ChartsPage} />
+      <Route path='/config' component={ConfigPage} />
     </div>
   </Router>
 );

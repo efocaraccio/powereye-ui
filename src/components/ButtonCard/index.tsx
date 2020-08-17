@@ -12,7 +12,7 @@ export const ButtonCard = (props: ButtonCardProps) => {
 
   return <Card hoverable className={'buttom-card'}>
     <img alt={title} src={ image === 'chart' ? ChartImage : ConfigImage } style={{marginBottom: '20px'}}/>
-    <Title style={{fontWeight: 500}} level={4}>{title}</Title>
+    <Title style={{fontWeight: 500}} level={3}>{title}</Title>
   </Card>;
 
 };
