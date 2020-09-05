@@ -4,18 +4,18 @@ import { Button, Layout, Divider } from 'antd';
 import { TopBar } from '../../components/TopBar/TopBar';
 import { ConfigNavigator } from '../../components/ConfigNavigator';
 import { Showcase } from '../../components/Showcase';
-import { ScreenDisplay } from '../../components/ScreenDisplay';
+import { PriorityConfig } from '../../components/PriorityConfig';
 import { ProductDisplay } from '../../components/ProductDisplay';
 
 const { Header, Content } = Layout;
 
 const CONFIG_PAGES = {
-  SCREEN: 'screen',
+  PRIORITY: 'priority',
   PRODUCTS: 'products',
   SHOWCASE: 'showcase'
 }
 
-export type ConfigPages = 'screen' | 'products' | 'showcase';
+export type ConfigPages = 'priority' | 'products' | 'showcase';
 
 export const ConfigPage = () => {
 
@@ -26,8 +26,8 @@ export const ConfigPage = () => {
   }
 
   const loadPage = () => {
-    if(page === CONFIG_PAGES.SCREEN)
-      return <ScreenDisplay/>;
+    if(page === CONFIG_PAGES.PRIORITY)
+      return <PriorityConfig/>;
     if(page === CONFIG_PAGES.PRODUCTS)
       return <ProductDisplay/>;
     if(page === CONFIG_PAGES.SHOWCASE)

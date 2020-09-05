@@ -10,7 +10,7 @@ export const ConfigNavigator = (props: ConfigNavigator) => {
   return <div className={'config-navigator'}>
     <Button onClick={() => {onPageChange('showcase') }}  shape="round" size={'large'}>Vidriera</Button>
     <Button onClick={() => {onPageChange('products') }} shape="round" size={'large'}>Productos</Button>
-    <Button onClick={() => {onPageChange('screen') }} shape="round" size={'large'}>Prioridad</Button>
+    <Button onClick={() => {onPageChange('priority') }} shape="round" size={'large'}>Prioridad</Button>
   </div>;
 };
 
