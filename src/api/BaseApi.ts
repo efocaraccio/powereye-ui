@@ -31,11 +31,19 @@ export class BaseApi {
       .then(response => response.json());
   }
 
-  apiPost(path, body,) {
+  apiPost(path, body) {
     return this.apiFetch({
       method: "POST",
       path,
       body
+    });
+  }
+
+  apiGet(path) {
+    return this.apiFetch({
+      method: "GET",
+      path,
+      body: null
     });
   }
 
