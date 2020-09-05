@@ -54,9 +54,9 @@ export const CreateProductModal = ({ visible, onCreate, onCancel }) => {
             },
           ]}>
           <Select placeholder="Seleccione prioridad">
-            <Option value="alta">Alta</Option>
-            <Option value="media">Media</Option>
-            <Option value="baja">Baja</Option>
+            <Option value="3">Alta</Option>
+            <Option value="2">Media</Option>
+            <Option value="1">Baja</Option>
           </Select>
         </Form.Item>
         <Form.Item name="multimedia" label="Multimedia">

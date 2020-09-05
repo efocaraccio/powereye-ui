@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Table, Input, InputNumber, Popconfirm, Form, Button, Space } from 'antd';
 import { CreateProductModal } from './CreateProductModal';
 import { EditableCell } from './EditableCell';
+import { ProductApi } from '../../api/ProductApi';
 
 const originData = [];
         // Reemplazar por use Effect que consulte los productos
@@ -22,6 +23,8 @@ export const ProductTable = () => {
   const [modalVisible, setModalVisibility] = useState(false);
 
   const isEditing = record => record.key === editingKey;
+
+  const productApi = new ProductApi()
 
   /*
   * Functions to interact with a row of the table
@@ -155,10 +158,15 @@ export const ProductTable = () => {
 
   const onCreate = values => {
     console.log(values)
-
-        // HACER API CALL DESDE ACA PARA CREAR PRODUCTO
-
-    setData([...data, values]);
+    const prod = {
+      nombre: values.nombre,
+      prioridad: parseInt(values.prioridad)
+    }
+    productApi.createProduct(prod).then( response => {
+      setData([...data, values]);
+    }).catch( err => {
+      console.log(err);
+    } );
     setModalVisibility(false);
   };
 
