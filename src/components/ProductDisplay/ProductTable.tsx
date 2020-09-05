@@ -7,7 +7,7 @@ import { ProductApi } from '../../api/ProductApi';
 
 const originData = [];
         // Reemplazar por use Effect que consulte los productos
-for (let i = 0; i < 15; i++) {
+for (let i = 0; i < 2; i++) {
   originData.push({
     key: i.toString(),
     nombre: `Producto ${i}`,
@@ -32,9 +32,7 @@ export const ProductTable = () => {
   */
   const edit = record => {
     form.setFieldsValue({
-      name: '',
-      age: '',
-      address: '',
+      
       ...record,
     });
     setEditingKey(record.key);
@@ -54,11 +52,20 @@ export const ProductTable = () => {
       const row = await form.validateFields();
       const newData = [...data];
       const index = newData.findIndex(item => key === item.key);
-
+      
       if (index > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
-        setData(newData);
+        const newItem = {
+          id: key,
+          nombre: newData[index].nombre,
+          prioridad: newData[index].prioridad
+        }
+        productApi.editProduct(newItem).then((response)=> {
+          console.log(newData)
+          setData(newData);
+        })
+        
         setEditingKey('');
       } else {
         newData.push(row);
@@ -163,7 +170,8 @@ export const ProductTable = () => {
       prioridad: parseInt(values.prioridad)
     }
     productApi.createProduct(prod).then( response => {
-      setData([...data, values]);
+      if(response != 0)
+        setData([...data, {...values,key:response}]);
     }).catch( err => {
       console.log(err);
     } );
