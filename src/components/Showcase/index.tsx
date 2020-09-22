@@ -5,10 +5,13 @@ import { ShowcaseSector } from './ShowcaseSector';
 
 
 const options = [
+  
   { value: 1, label: 'camara' },
   { value: 2, label: 'remera' },
   { value: 3, label: 'guante' },
   { value: 4, label: 'bufanda' },
+  
+
 ]
 
 const {Title,Text} = Typography;

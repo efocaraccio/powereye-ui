@@ -1,30 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Table, Input, InputNumber, Popconfirm, Form, Button, Space } from 'antd';
 import { CreateProductModal } from './CreateProductModal';
 import { EditableCell } from './EditableCell';
 import { ProductApi } from '../../api/ProductApi';
+import Item from 'antd/lib/list/Item';
 
-const originData = [];
         // Reemplazar por use Effect que consulte los productos
-for (let i = 0; i < 2; i++) {
-  originData.push({
-    key: i.toString(),
-    nombre: `Producto ${i}`,
-    prioridad: 1,
-    sector: `${i}`,
-  });
-}
 
 export const ProductTable = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
+  const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState('');
   const [modalVisible, setModalVisibility] = useState(false);
 
   const isEditing = record => record.key === editingKey;
 
   const productApi = new ProductApi()
+
+  useEffect(()=> {
+    productApi.getProducts().then((response)=> {
+      setData(response.map(item => {
+        return {
+          key: item.id,
+          nombre: item.nombre,
+          prioridad: item.prioridad,
+          sector: item.idZonaVidriera,
+        }
+      }))
+    })
+  },[])
+
+  
 
   /*
   * Functions to interact with a row of the table
@@ -44,7 +51,15 @@ export const ProductTable = () => {
 
   const handleDelete = key => {
             // HACER API CALL DESDE ACA PARA ELIMINAR PRODUCTO
-    setData(data.filter(item => item.key !== key))
+      const index = data.findIndex(item => key === item.key);
+      const newItem = {
+        id: key,
+        nombre: data[index].nombre,
+        prioridad: data[index].prioridad
+      }
+      productApi.deleteProduct(newItem).then((response)=> {
+        setData(data.filter(item => item.key !== key))
+      })
   };
 
   const save = async key => {
@@ -62,7 +77,6 @@ export const ProductTable = () => {
           prioridad: newData[index].prioridad
         }
         productApi.editProduct(newItem).then((response)=> {
-          console.log(newData)
           setData(newData);
         })
         
@@ -170,8 +184,9 @@ export const ProductTable = () => {
       prioridad: parseInt(values.prioridad)
     }
     productApi.createProduct(prod).then( response => {
-      if(response != 0)
+      if(response != 0){
         setData([...data, {...values,key:response}]);
+      }
     }).catch( err => {
       console.log(err);
     } );

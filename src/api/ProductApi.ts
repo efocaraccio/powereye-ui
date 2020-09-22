@@ -18,6 +18,14 @@ export class ProductApi extends BaseApi {
     async createProduct (product: NewProduct) {
       return await this.apiPost('/crear',product)
     }
+
+    async deleteProduct (product: Product) {
+      return await this.apiPost('/eliminar',product)
+    }
+
+    async getProducts () {
+      return await this.apiPost('/verProductos', 0)
+    }
 }
 
 interface NewProduct {

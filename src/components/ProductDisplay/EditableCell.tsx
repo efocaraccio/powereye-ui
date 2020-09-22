@@ -22,7 +22,7 @@ export const EditableCell = ({
           }}
           rules={[
             {
-              required: dataIndex === 'sector' ? false : true,
+              required: dataIndex === 'sector' ? false : (dataIndex === 'multimedia' ? false : true),
               message: `Ingrese ${title}!`,
             },
           ]}
