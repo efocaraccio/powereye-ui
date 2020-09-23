@@ -12,10 +12,11 @@ const { Header, Content } = Layout;
 const CONFIG_PAGES = {
   PRIORITY: 'priority',
   PRODUCTS: 'products',
-  SHOWCASE: 'showcase'
+  SHOWCASE: 'showcase',
+  SELLERS: 'sellers'
 }
 
-export type ConfigPages = 'priority' | 'products' | 'showcase';
+export type ConfigPages = 'priority' | 'products' | 'showcase' | 'sellers';
 
 export const ConfigPage = () => {
 
@@ -31,6 +32,8 @@ export const ConfigPage = () => {
     if(page === CONFIG_PAGES.PRODUCTS)
       return <ProductDisplay/>;
     if(page === CONFIG_PAGES.SHOWCASE)
+      return <Showcase/>;
+      if(page === CONFIG_PAGES.SELLERS)
       return <Showcase/>;
     return <div></div>;
   }
