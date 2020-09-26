@@ -1,10 +1,43 @@
 import React, { useState } from 'react';
-import { Button, Modal, Form, Input, Radio, Select } from 'antd';
+import { Button, Modal, Form, Input, Radio, Select, Upload } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
 export const CreateProductModal = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
+  const [fileList, updateFileList] = useState([]);
+  function getBase64(file2, cb) {debugger;
+    let reader = new FileReader();
+    reader.readAsDataURL(file2);
+    reader.onload = function () {
+      console.log(reader.result)  
+      var img = JSON.stringify(reader.result)
+      localStorage.setItem("imagen",img)
+      cb(reader.result)
+        
+    };
+    reader.onerror = function (error) {
+        console.log('Error: ', error);
+    };
+  }
+  const props = {
+    fileList,
+    beforeUpload: file => {
+      if (file.type !== 'image/png') {
+        
+      }
+      let idCardBase64 = '';
+      getBase64(file, (result) => {
+          idCardBase64 = result;
+      });
+      
+      return file.type === 'image/png' || file.type === 'image/jpg' || file.type === 'image/jpeg';
+    },
+    
+   
+    
+  };
   return (
     <Modal
       visible={visible}
@@ -59,8 +92,16 @@ export const CreateProductModal = ({ visible, onCreate, onCancel }) => {
             <Option value="1">LOW</Option>
           </Select>
         </Form.Item>
-        <Form.Item name="multimedia" label="Multimedia">
-          <Input placeholder="miarchivo.mp4"/>
+        <Form.Item name="imagen"
+          label="Imagen"
+          rules={[
+            {
+              required: true,
+            },
+          ]}>
+          <Upload {...props}>
+            <Button icon={<UploadOutlined />}>Seleccionar imagen</Button>
+          </Upload>
         </Form.Item>
       </Form>
     </Modal>

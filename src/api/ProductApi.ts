@@ -37,6 +37,7 @@ interface Product {
   id: number;
   nombre: String;
   prioridad: number;
+  imagen?: String;
 }
 
 interface ProductWindow {

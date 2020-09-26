@@ -51,11 +51,12 @@ export const ProductTable = () => {
 
   const handleDelete = key => {
             // HACER API CALL DESDE ACA PARA ELIMINAR PRODUCTO
-      const index = data.findIndex(item => key === item.key);
+            const index = data.findIndex(item => key === item.key);
+            console.log(data[index].imagen)
       const newItem = {
         id: key,
         nombre: data[index].nombre,
-        prioridad: data[index].prioridad
+        prioridad: data[index].prioridad,
       }
       productApi.deleteProduct(newItem).then((response)=> {
         setData(data.filter(item => item.key !== key))
@@ -74,7 +75,7 @@ export const ProductTable = () => {
         const newItem = {
           id: key,
           nombre: newData[index].nombre,
-          prioridad: newData[index].prioridad
+          prioridad: newData[index].prioridad,
         }
         productApi.editProduct(newItem).then((response)=> {
           setData(newData);
@@ -176,16 +177,19 @@ export const ProductTable = () => {
   /*
   * End columns of table
   */
-
   const onCreate = values => {
     console.log(values)
+    var imgBase64=JSON.parse(localStorage.getItem("imagen"))
+    console.log(JSON.parse(localStorage.getItem("imagen")))
     const prod = {
       nombre: values.nombre,
-      prioridad: parseInt(values.prioridad)
+      prioridad: parseInt(values.prioridad),
+      imagen: imgBase64.split(",")[1]
     }
+    debugger;
     productApi.createProduct(prod).then( response => {
       if(response != 0){
-        setData([...data, {...values,key:response}]);
+        setData([...data, { name: values.name, prioridad: values.prioridad ,key:response}]);
       }
     }).catch( err => {
       console.log(err);
