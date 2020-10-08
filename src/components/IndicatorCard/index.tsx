@@ -7,16 +7,16 @@ export const IndicatorCard = (props: IndicatorCardProps) => {
 
   const { initialStat = 0, fetchStat, title, unit } = props;
 
-  const [stat, setStat] = useState(initialStat);
-  const [loading, setLoading] = useState( initialStat !== 0 ? false : true );
+  //const [stat, setStat] = useState(initialStat);
+  //const [loading, setLoading] = useState( initialStat !== 0 ? false : true );
 
 
-  return <Card className={'indicator-card'} loading={loading}>
+  return <Card className={'indicator-card'} >
     <Statistic
             style={{width: '200px'}}
             className={'stat'}
             title={title}
-            value={stat}
+            value={initialStat.toFixed(0)}
             valueStyle={{ color: '#3f8600' }}
             suffix={unit}
           />

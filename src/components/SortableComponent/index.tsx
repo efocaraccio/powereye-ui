@@ -1,11 +1,11 @@
 import React, {Component, useState} from 'react';
 import {render} from 'react-dom';
 import {SortableContainer, SortableElement} from 'react-sortable-hoc';
-import arrayMove from 'array-move';
 import { List, Typography, Divider, Tooltip, Card } from 'antd';
 import './index.scss'
 import { MenuOutlined } from '@ant-design/icons';
 
+const arrayMove = require('array-move');
 const { Text } = Typography;
 
 const SortableItem = SortableElement(({value}) => <List.Item>
