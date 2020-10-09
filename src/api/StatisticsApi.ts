@@ -19,6 +19,14 @@ export class StatisticsApi extends BaseApi {
         return await this.apiPost('/personasIngresaron',filtro)
     }
 
+    async getTortaSexo (filtro: Filtro) {
+        return await this.apiPost('/graficoTortaSexo',filtro)
+    }
+
+    async getTortaRangoEtario (filtro: Filtro) {
+        return await this.apiPost('/graficoTortaRangoEtario',filtro)
+    }
+
 }
 
 interface Filtro {

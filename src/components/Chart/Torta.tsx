@@ -1,33 +1,59 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './index.scss';
 import { Pie } from '@ant-design/charts';
+import { StatisticsApi } from '../../api/StatisticsApi';
 
-const data = [
-  {
-    date: 'asd',
-    value: 38,
-  },
-  {
-    date: 'dfg',
-    value: 52,
-  },
-  {
-    date: 'ghj',
-    value: 61,
-  },
-  {
-    date: 'zxc',
-    value: 145,
-  },
-  {
-    date: 'cvb',
-    value: 48,
-  },
-];
 
 const Torta = (props) => {
 
-  const { type, title, description } = props;
+  const { type, title, description, filtro} = props;
+  const [data, setData] = useState([]);
+
+  useEffect( () => {
+    const statisticsApi = new StatisticsApi()
+    if(type === "Sexo"){
+      statisticsApi.getTortaSexo(filtro).then( response => {
+        if(response !== null){
+          const newDataSexo = [{
+            date: 'Masculino',
+            value: response.cantM
+          },
+          {
+            date: 'Femenino',
+            value: response.cantF
+          },];
+          setData(newDataSexo);
+        }
+      }).catch( err => {
+        console.log(err);
+      } );
+    }
+    if(type === "RangoEtario"){
+      statisticsApi.getTortaRangoEtario(filtro).then( response => {
+        if(response !== null){
+          const newDataRangoEtario = [{
+            date: 'Menores a 25 años',
+            value: response.rango0025
+          },
+          {
+            date: 'De 25 a 40 años',
+            value: response.rango2540
+          },
+          {
+            date: 'De 40 a 60 años',
+            value: response.rango4060
+          },
+          {
+            date: '60 años o más',
+            value: response.rango60up
+          },];
+          setData(newDataRangoEtario);
+        }
+      }).catch( err => {
+        console.log(err);
+      } );
+    }
+  }, [filtro] )
 
   const config = {
     className: 'chart',

@@ -47,7 +47,7 @@ export const ChartsPage = () => {
   <Content className={'charts-page'}>
     <IndicatorGroup   dateFormat={dateFormat} onDateChange={onDateChange} fechaInicial={fechaInicial} filtro={filtro}/>
     <Divider/>
-    <ChartGroup/>
+    <ChartGroup filtro={filtro}/>
   </Content>
 </Layout>;
 
