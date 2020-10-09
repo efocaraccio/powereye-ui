@@ -61,10 +61,10 @@ export const ChartGroup = () => {
             <Option value="1">Prod1</Option>
           </Select>
         </Form.Item>
-    <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
+    <Card className={''}  style={{ margin: '20px auto', maxWidth: '1250px' }}>
       <Torta title={'Vistas por Rango Etario'} />
     </Card>
-    <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
+    <Card className={''} style={{ margin: '20px auto', maxWidth: '1250px' }}>
       <Torta title={'Vistas por Sexo'} />
     </Card>
   </div>;
