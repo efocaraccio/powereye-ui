@@ -10,7 +10,11 @@ const { Title } = Typography;
 export const ChartGroup = () => {
 
   return <div className={'chart-group'}>
-    <Form.Item
+
+    <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
+      <Title level={3}>Impacto por día</Title>
+      <div className={'filter-chart-group'}>
+        <Form.Item
           name="filtro1"
           label="Sexo"
           style={{ margin: '20px auto', maxWidth: '400px' }}
@@ -40,32 +44,51 @@ export const ChartGroup = () => {
             <Option value="1">60 años o más</Option>
           </Select>
         </Form.Item>
-    <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
-      <Linea title={'Impacto por día'} />
+      </div>
+      <Linea  />
     </Card>
     <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
       <Columna title={'Vistas totales por producto'} />
     </Card>
+    <Card className={''} style={{ margin: '20px auto', maxWidth: '1250px' }}>
+    <Title level={3}>Vistas por Rango Etario</Title>
     <Form.Item
-          name="filtro2"
-          label="Producto"
-          style={{ margin: '20px auto', maxWidth: '400px' }}
-          rules={[
-            {
-              message: 'Seleccionar producto',
-            },
-          ]}>
-          <Select placeholder="Seleccionar producto">
-            <Option value="3">Prod3</Option>
-            <Option value="2">Prod2</Option>
-            <Option value="1">Prod1</Option>
-          </Select>
-        </Form.Item>
-    <Card className={''}  style={{ margin: '20px auto', maxWidth: '1250px' }}>
-      <Torta title={'Vistas por Rango Etario'} />
+    className={'filter-chart-group'}
+      name="filtro2"
+      label="Producto"
+      style={{ margin: '20px auto', maxWidth: '400px' }}
+      rules={[
+        {
+          message: 'Seleccionar producto',
+        },
+      ]}>
+      <Select placeholder="Seleccionar producto">
+        <Option value="3">Prod3</Option>
+        <Option value="2">Prod2</Option>
+        <Option value="1">Prod1</Option>
+      </Select>
+    </Form.Item>
+      <Torta/>
     </Card>
     <Card className={''} style={{ margin: '20px auto', maxWidth: '1250px' }}>
-      <Torta title={'Vistas por Sexo'} />
+    <Title level={3}>Vistas por Sexo</Title>
+    <Form.Item
+    className={'filter-chart-group'}
+      name="filtro2"
+      label="Producto"
+      style={{ margin: '20px auto', maxWidth: '400px' }}
+      rules={[
+        {
+          message: 'Seleccionar producto',
+        },
+      ]}>
+      <Select placeholder="Seleccionar producto">
+        <Option value="3">Prod3</Option>
+        <Option value="2">Prod2</Option>
+        <Option value="1">Prod1</Option>
+      </Select>
+    </Form.Item>
+      <Torta />
     </Card>
   </div>;
 };

@@ -5,3 +5,9 @@
 .cake-chart-card{
   width: 50%;
 }
+
+.filter-chart-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
