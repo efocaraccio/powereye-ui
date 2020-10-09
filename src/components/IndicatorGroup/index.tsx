@@ -25,7 +25,7 @@ export const IndicatorGroup = (props) => {
     const statisticsApi = new StatisticsApi()
     
     statisticsApi.getPromedioVistasDiarias(filtro).then( response => {
-      if(response !== 0){
+      if(response !== null){
         setPromedio(response)
       }
     }).catch( err => {
@@ -33,7 +33,7 @@ export const IndicatorGroup = (props) => {
     } );
   
     statisticsApi.getPersonasQueIngresaron(filtro).then( response => {
-      if(response !== 0){
+      if(response !== null){
         setIngresaron(response)
       }
     }).catch( err => {
@@ -41,7 +41,7 @@ export const IndicatorGroup = (props) => {
     } );
   
     statisticsApi.getPersonasDetuvieron(filtro).then( response => {
-      if(response !== 0){
+      if(response !== null){
         setDetuvieron(response)
       }
     }).catch( err => {
