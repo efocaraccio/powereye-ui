@@ -12,11 +12,12 @@ const { Header, Content } = Layout;
 interface FiltroFecha {
   fechaInicio: string;
   fechaFin: string;
+  producto?: number;
 }
 
 const fechaInicial: FiltroFecha = {
   fechaInicio: "2020/09/09",
-  fechaFin: "2020/09/27"
+  fechaFin: "2020/09/27",
 }
 
 
@@ -47,7 +48,7 @@ export const ChartsPage = () => {
   <Content className={'charts-page'}>
     <IndicatorGroup   dateFormat={dateFormat} onDateChange={onDateChange} fechaInicial={fechaInicial} filtro={filtro}/>
     <Divider/>
-    <ChartGroup filtro={filtro}/>
+    <ChartGroup filtro={filtro} onFilterChange={setFiltro}/>
   </Content>
 </Layout>;
 

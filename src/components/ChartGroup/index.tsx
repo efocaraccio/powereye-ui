@@ -3,6 +3,7 @@ import { Columna, Torta, Linea } from '../Chart/index';
 import { Typography, Card, Form, Select } from 'antd';
 import { StatisticsApi } from '../../api/StatisticsApi';
 import './index.scss';
+import { ProductApi } from '../../api/ProductApi';
 
 const { Option } = Select;
 
@@ -11,6 +12,37 @@ const { Title } = Typography;
 export const ChartGroup = (props) => {
 
   const {onDateChange, filtro} = props;
+  const [products, setProducts] = useState(null);
+
+  const [filtroRangoEtario, setFiltroRangoEtario] = useState(filtro);
+  const [filtroSexo, setFiltroSexo] = useState(filtro);
+
+  const [prodRangoEtario, setProdRangoEtario] = useState(null as number);
+  const [prodSexo, setProdSexo] = useState(null as number);
+
+  useEffect(()=> {
+    const productApi = new ProductApi()
+    productApi.getProducts().then((response)=> {
+      setProducts(response.map(item => {
+        return {
+          id: item.id,
+          label: item.nombre
+        }
+      }))
+    })
+  },[])
+
+  useEffect(()=> {
+    setFiltroRangoEtario({
+      ...filtro,
+      producto: prodRangoEtario
+    })
+    setFiltroSexo({
+      ...filtro,
+      producto: prodSexo
+    })
+  },[filtro, prodRangoEtario, prodSexo])
+
 
   return <div className={'chart-group'}>
 
@@ -65,13 +97,11 @@ export const ChartGroup = (props) => {
           message: 'Seleccionar producto',
         },
       ]}>
-      <Select placeholder="Seleccionar producto">
-        <Option value="3">Prod3</Option>
-        <Option value="2">Prod2</Option>
-        <Option value="1">Prod1</Option>
+      <Select placeholder="Seleccionar producto" onChange={(value) => {setProdRangoEtario(value as any)}} >
+        { products && products.map( el => <Option value={el.id}>{el.label}</Option> )}
       </Select>
     </Form.Item>
-      <Torta type={"RangoEtario"} filtro={filtro} />
+      <Torta type={"RangoEtario"} filtro={filtroRangoEtario} />
     </Card>
     <Card className={''} style={{ margin: '20px auto', maxWidth: '1250px' }}>
     <Title level={3}>Vistas por Sexo</Title>
@@ -85,13 +115,11 @@ export const ChartGroup = (props) => {
           message: 'Seleccionar producto',
         },
       ]}>
-      <Select placeholder="Seleccionar producto">
-        <Option value="3">Prod3</Option>
-        <Option value="2">Prod2</Option>
-        <Option value="1">Prod1</Option>
+      <Select placeholder="Seleccionar producto" onChange={(value) => {setProdSexo(value as any)}} >
+        { products && products.map( el => <Option value={el.id}>{el.label}</Option> )}
       </Select>
     </Form.Item>
-      <Torta type={"Sexo"} filtro={filtro}/>
+      <Torta type={"Sexo"} filtro={filtroSexo}/>
     </Card>
   </div>;
 };
