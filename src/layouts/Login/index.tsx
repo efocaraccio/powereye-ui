@@ -3,6 +3,7 @@ import './index.scss'
 import { Form, Input, Checkbox, Button, Card, Typography } from 'antd';
 import textLogo from '../../assets/PowerEyeTextLogo.png';
 import onlyLogo from '../../assets/PowerEyeOnlyLogo.png';
+import { Link } from 'react-router-dom';
 
 const {Text} = Typography;
 
@@ -56,9 +57,11 @@ export const Login = () => {
           <Text type={'secondary'}>¿Olvidaste tu contraseña?</Text>
         </Form.Item>
         <Form.Item style={{ textAlign: 'center',marginTop: '25px' }}>
+        <Link to='/'>
           <Button style={{width: '100%'}} type="primary" htmlType="submit">
             Iniciar sesión
-        </Button>
+          </Button>
+        </Link>
         </Form.Item>
       </Form>
     </Card>
