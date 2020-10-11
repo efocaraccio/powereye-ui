@@ -31,3 +31,17 @@ body{
   font-size: 26px;
   border: 1px solid;
 }
+
+.sync-state{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .spin-icon{
+    font-size: 20px;
+  }
+  .success-icon{
+    font-size: 32px;
+    color: rgb(5, 179, 5);
+    font-weight: 800;
+  }
+}

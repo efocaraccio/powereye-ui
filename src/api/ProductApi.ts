@@ -26,6 +26,10 @@ export class ProductApi extends BaseApi {
     async getProducts () {
       return await this.apiPost('/verProductos', 0)
     }
+
+    async asingProductToShowcase(product: ProductWindow) {
+      return await this.apiPost('/asignar', product)
+    }
 }
 
 interface NewProduct {
@@ -36,12 +40,12 @@ interface NewProduct {
 interface Product {
   id: number;
   nombre: String;
-  prioridad: number;
+  prioridad?: number;
   imagen?: String;
 }
 
 interface ProductWindow {
   id: number;
-  nombre: String;
+  nombre?: String;
   idZonaVidriera: number;
 }

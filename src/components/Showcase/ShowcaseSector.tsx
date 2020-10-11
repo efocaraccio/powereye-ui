@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 import { Card, Tag, Typography, Popover, Select } from 'antd';
 
 const { Title, Text } = Typography;
+const { Option } = Select;
 
 export const ShowcaseSector = (props) => {
 
-  const { index, text, options = [] } = props;
+  const { index, text, options = [], onProductChange } = props;
 
   const [selectedOption, setSelectedOption] = useState(text);
 
+  useEffect( () => {
+    // TODO find para agarra el primer item que coincide con la vidriera ya que como esta el bug en el back, hay más de un item por zona varias veces
+    const currentValue = options.find( opt => opt.idZonaVidriera === index);
+    currentValue && setSelectedOption(currentValue.label)
+  }, [options])
 
   const onChange = (value, options) => {
-    setSelectedOption(options.label);
+    setSelectedOption(options.children);
+    onProductChange(value, index)
   }
 
   const content = (
     <div>
-      <Select options={options} style={{ width: '100%' }} onChange={onChange} />
+      <Select style={{ width: '100%' }} onChange={onChange} >
+        { options.map(option => <Option key={option.id} value={option.id}>{option.label}</Option>) }
+      </Select>
     </div>
   );
 
