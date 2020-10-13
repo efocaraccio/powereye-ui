@@ -19,7 +19,7 @@ const productApi = new ProductApi()
 
 export const Showcase = (props) => {
 
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   const [syncing , setSyncing] = useState(false);
 
   useEffect(()=> {
@@ -39,7 +39,23 @@ export const Showcase = (props) => {
     productApi.asingProductToShowcase({
       id: id,
       idZonaVidriera: idZona
-    }).finally( () => setTimeout( () => setSyncing(false), 1000) )
+    })
+    .then( result => {      
+      products && products.filter( prod => prod.idZonaVidriera === idZona)
+        .forEach( prod => productApi.desasignarDeVidriera({id: prod.id, idZonaVidriera: prod.idZonaVidriera}) )
+      
+      const newProducts = products && products.map( prod => {
+        if(prod.idZonaVidriera === idZona && prod.id !== id) {
+          prod.idZonaVidriera = null
+        }
+        if(prod.id === id) {
+          prod.idZonaVidriera = idZona;
+        }
+        return prod;
+      });
+      setProducts(newProducts)
+    })
+    .finally( () => setTimeout( () => setSyncing(false), 1000) )
   };
 
   const cuadrantes = 9

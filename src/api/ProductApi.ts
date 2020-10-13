@@ -30,6 +30,10 @@ export class ProductApi extends BaseApi {
     async asingProductToShowcase(product: ProductWindow) {
       return await this.apiPost('/asignar', product)
     }
+
+    async desasignarDeVidriera(product: ProductWindow) {
+      return await this.apiPost('/sacarDeVidriera', product)
+    }
 }
 
 interface NewProduct {
