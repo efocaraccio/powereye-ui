@@ -73,6 +73,7 @@ export const ChartGroup = (props) => {
     <Title level={3}>Vistas por Rango Etario</Title>
 
       <Select className={'filter-chart-group'} placeholder="Seleccionar producto" onChange={(value) => {setProdRangoEtario(value as any)}} >
+        <Option key={999} value={null}>{"Todos los Productos"}</Option>
         { products && products.map( el => <Option key={el.id} value={el.id}>{el.label}</Option> )}
       </Select>
 
@@ -82,6 +83,7 @@ export const ChartGroup = (props) => {
     <Title level={3}>Vistas por Sexo</Title>
 
       <Select className={'filter-chart-group'} placeholder="Seleccionar producto" onChange={(value) => {setProdSexo(value as any)}} >
+      <Option key={999} value={null}>{"Todos los Productos"}</Option>
         { products && products.map( el => <Option key={el.id} value={el.id}>{el.label}</Option> )}
       </Select>
 

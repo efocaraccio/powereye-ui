@@ -186,7 +186,6 @@ export const ProductTable = () => {
       prioridad: parseInt(values.prioridad),
       imagen: imgBase64.split(",")[1]
     }
-    debugger;
     productApi.createProduct(prod).then( response => {
       if(response != 0){
         setData([...data, { name: values.name, prioridad: values.prioridad ,key:response}]);

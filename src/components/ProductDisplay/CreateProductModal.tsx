@@ -7,7 +7,7 @@ const { Option } = Select;
 export const CreateProductModal = ({ visible, onCreate, onCancel }) => {
   const [form] = Form.useForm();
   const [fileList, updateFileList] = useState([]);
-  function getBase64(file2, cb) {debugger;
+  function getBase64(file2, cb) {
     let reader = new FileReader();
     reader.readAsDataURL(file2);
     reader.onload = function () {
@@ -96,7 +96,7 @@ export const CreateProductModal = ({ visible, onCreate, onCancel }) => {
           label="Imagen"
           rules={[
             {
-              required: true,
+              required: false,
             },
           ]}>
           <Upload {...props}>
