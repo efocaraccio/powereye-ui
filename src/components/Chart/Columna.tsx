@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.scss';
 import { Column } from '@ant-design/charts';
+import { StatisticsApi } from '../../api/StatisticsApi';
 
 const data = [
   {
@@ -25,18 +26,18 @@ const data = [
   },
 ];
 
-
+const statisticsApi = new StatisticsApi();
 
 const Columna = (props) => {
 
-  const { type, title, description } = props;
+  const { type, description } = props;
+
+  useEffect(() => {
+
+  }, [])
 
   const config = {
     className: 'chart',
-    title: {
-      visible: !!title ? true : false,
-      text: title,
-    },
     description: {
       visible: !!description ? true : false,
       text: description,

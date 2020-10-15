@@ -27,6 +27,8 @@ export class StatisticsApi extends BaseApi {
         return await this.apiPost('/graficoTortaRangoEtario',filtro)
     }
 
+
+
 }
 
 interface Filtro {

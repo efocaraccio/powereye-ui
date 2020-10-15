@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Layout, Divider } from 'antd';
 import './index.scss';
 import { IndicatorGroup } from '../../components/IndicatorGroup';
 import { ChartGroup } from '../../components/ChartGroup';
 import {  } from 'antd';
 import { TopBar } from '../../components/TopBar/TopBar';
-import { StatisticsApi } from '../../api/StatisticsApi';
 
 const { Header, Content } = Layout;
 

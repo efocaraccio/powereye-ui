@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, Form, Input, Radio, Select, Upload } from 'antd';
+import { Button, Modal, Form, Input, Select, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -11,11 +11,11 @@ export const CreateProductModal = ({ visible, onCreate, onCancel }) => {
     let reader = new FileReader();
     reader.readAsDataURL(file2);
     reader.onload = function () {
-      console.log(reader.result)  
+      console.log(reader.result)
       var img = JSON.stringify(reader.result)
       localStorage.setItem("imagen",img)
       cb(reader.result)
-        
+
     };
     reader.onerror = function (error) {
         console.log('Error: ', error);
@@ -25,18 +25,18 @@ export const CreateProductModal = ({ visible, onCreate, onCancel }) => {
     fileList,
     beforeUpload: file => {
       if (file.type !== 'image/png') {
-        
+
       }
       let idCardBase64 = '';
       getBase64(file, (result) => {
           idCardBase64 = result;
       });
-      
+
       return file.type === 'image/png' || file.type === 'image/jpg' || file.type === 'image/jpeg';
     },
-    
-   
-    
+
+
+
   };
   return (
     <Modal

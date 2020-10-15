@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, Statistic } from 'antd';
 import './index.scss';
-import { BarChartOutlined } from '@ant-design/icons';
 
 export const IndicatorCard = (props: IndicatorCardProps) => {
 
-  const { initialStat = 0, fetchStat, title, unit } = props;
+  const { initialStat = 0, title, unit } = props;
 
   //const [stat, setStat] = useState(initialStat);
   //const [loading, setLoading] = useState( initialStat !== 0 ? false : true );

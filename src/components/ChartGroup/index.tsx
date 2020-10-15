@@ -67,7 +67,24 @@ export const ChartGroup = (props) => {
       <Linea  />
     </Card>
     <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
-      <Columna title={'Vistas totales por producto'} />
+    <Title level={3}>Vistas totales por producto</Title>
+      <div className={'filter-chart-group'}>
+
+          <Select style={{ margin: '20px auto', maxWidth: '400px' }} placeholder="Seleccionar sexo">
+            <Option value="2">Masculino</Option>
+            <Option value="1">Femenino</Option>
+          </Select>
+
+
+          <Select style={{ margin: '20px auto', maxWidth: '400px' }} placeholder="Seleccionar Rango etario">
+            <Option value="4">Menores a 25 años</Option>
+            <Option value="3">De 25 a 40 años</Option>
+            <Option value="2">De 40 a 60 años</Option>
+            <Option value="1">60 años o más</Option>
+          </Select>
+
+      </div>
+      <Columna />
     </Card>
     <Card className={''} style={{ margin: '20px auto', maxWidth: '1250px' }}>
     <Title level={3}>Vistas por Rango Etario</Title>

@@ -1,7 +1,6 @@
-import React, {Component, useState} from 'react';
-import {render} from 'react-dom';
+import React, {useState} from 'react';
 import {SortableContainer, SortableElement} from 'react-sortable-hoc';
-import { List, Typography, Divider, Tooltip, Card } from 'antd';
+import { List, Typography, Tooltip, Card } from 'antd';
 import './index.scss'
 import { MenuOutlined } from '@ant-design/icons';
 
