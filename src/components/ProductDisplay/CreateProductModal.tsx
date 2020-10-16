@@ -90,6 +90,7 @@ export const CreateProductModal = ({ visible, onCreate, onCancel }) => {
             <Option value="3">MEDIUM</Option>
             <Option value="2">MEDIUM_LOW</Option>
             <Option value="1">LOW</Option>
+            <Option value="0">HIGH</Option>
           </Select>
         </Form.Item>
         <Form.Item name="imagen"

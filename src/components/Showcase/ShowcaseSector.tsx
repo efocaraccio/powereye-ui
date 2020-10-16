@@ -12,7 +12,6 @@ export const ShowcaseSector = (props) => {
   const [selectedOption, setSelectedOption] = useState(text);
 
   useEffect( () => {
-    console.log(options)
     // TODO find para agarra el primer item que coincide con la vidriera ya que como esta el bug en el back, hay más de un item por zona varias veces
     const currentValue = options.find( opt => opt.idZonaVidriera === index);
     if( currentValue ) {

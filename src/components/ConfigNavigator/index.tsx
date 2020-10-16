@@ -11,7 +11,6 @@ export const ConfigNavigator = (props: ConfigNavigator) => {
     <Button onClick={() => {onPageChange('showcase') }}  shape="round" size={'large'}>Vidriera</Button>
     <Button onClick={() => {onPageChange('products') }} shape="round" size={'large'}>Productos</Button>
     <Button onClick={() => {onPageChange('priority') }} shape="round" size={'large'}>Prioridad</Button>
-    <Button onClick={() => {onPageChange('sellers') }} shape="round" size={'large'}>Vendedores</Button>
   </div>;
 };
 

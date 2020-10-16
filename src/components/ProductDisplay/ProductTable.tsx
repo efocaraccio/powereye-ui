@@ -52,15 +52,15 @@ export const ProductTable = () => {
   const handleDelete = key => {
             // HACER API CALL DESDE ACA PARA ELIMINAR PRODUCTO
             const index = data.findIndex(item => key === item.key);
-            console.log(data[index].imagen)
+            //console.log(data[index].imagen)
       const newItem = {
         id: key,
         nombre: data[index].nombre,
-        prioridad: data[index].prioridad,
       }
       productApi.deleteProduct(newItem).then((response)=> {
         setData(data.filter(item => item.key !== key))
       })
+
   };
 
   const save = async key => {
@@ -178,17 +178,17 @@ export const ProductTable = () => {
   * End columns of table
   */
   const onCreate = values => {
-    console.log(values)
+    //console.log(values)
     var imgBase64=JSON.parse(localStorage.getItem("imagen"))
-    console.log(JSON.parse(localStorage.getItem("imagen")))
+    //console.log(JSON.parse(localStorage.getItem("imagen")))
     const prod = {
       nombre: values.nombre,
       prioridad: parseInt(values.prioridad),
       imagen: imgBase64.split(",")[1]
     }
     productApi.createProduct(prod).then( response => {
-      if(response != 0){
-        setData([...data, { name: values.name, prioridad: values.prioridad ,key:response}]);
+      if(response !== 0){
+        setData([...data, { nombre: prod.nombre, prioridad: prod.prioridad ,key:response}]);
       }
     }).catch( err => {
       console.log(err);
