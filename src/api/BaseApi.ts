@@ -1,5 +1,6 @@
 const PROTOCOL = 'http:'
-const HOST = 'localhost:8080'
+const HOST = '52.67.203.88:8080'
+//const HOST = 'localhost:8080'
 let BASE_URL = "";
 export class BaseApi {
 
