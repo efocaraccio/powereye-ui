@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './index.scss';
 import { Line } from '@ant-design/charts';
+import { StatisticsApi } from '../../api/StatisticsApi';
+import { mapServerDataToLineChart } from './Helper/helper';
 
 const data = [
   {
@@ -200,22 +202,32 @@ const data = [
   }
 ];
 
+const statisticsApi = new StatisticsApi();
 
 const Linea = (props) => {
 
-  const { title, description } = props;
+  const { description, filtro } = props;
+
+  const [lineaData, setLineaData] = useState([])
+
+  useEffect( () => {
+    statisticsApi.getLineaImpacto(filtro)
+      .then( response => {
+        setLineaData(mapServerDataToLineChart(response))
+      } )
+      .catch( err => {
+        setLineaData([])
+        console.log(err);
+      })
+  }, [filtro])
 
   const config = {
     className: 'chart',
-    title: {
-      visible: !!title ? true : false,
-      text: title,
-    },
     description: {
       visible: !!description ? true : false,
       text: description,
     },
-    data,
+    data: lineaData,
     responsive: true,
     forceFit: true,
     padding: 'auto',

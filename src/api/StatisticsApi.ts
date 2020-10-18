@@ -27,11 +27,19 @@ export class StatisticsApi extends BaseApi {
         return await this.apiPost('/graficoTortaRangoEtario',filtro)
     }
 
-
+    async getLineaImpacto (filtro: Filtro) {
+        return await this.apiPost('/graficoLineaImpacto',filtro)
+    }
 
 }
 
-interface Filtro {
-    fechaInicio: String;
-    fechaFin: String;
+export interface Filtro {
+    fechaInicio: string;
+    fechaFin: string;
+    producto?: number;
+    sexo?: Sexo;
+    rangoEtario?: RangoEtario;
   }
+
+  type RangoEtario = 'rango0025' | 'rango2540' | 'rango4060' | 'rango60up';
+  type Sexo = 'M' | 'F';
