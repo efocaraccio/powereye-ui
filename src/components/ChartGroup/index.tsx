@@ -14,6 +14,8 @@ export const ChartGroup = (props) => {
   const {onDateChange, filtro} = props;
   const [products, setProducts] = useState(null);
 
+  const [filtroLinea, setFiltroLinea] = useState({...filtro, producto: 1})
+
   const [filtroRangoEtario, setFiltroRangoEtario] = useState(filtro);
   const [filtroSexo, setFiltroSexo] = useState(filtro);
 
@@ -41,6 +43,10 @@ export const ChartGroup = (props) => {
       ...filtro,
       producto: prodSexo
     })
+    setFiltroLinea({
+      ...filtro,
+      producto: 1
+    })
   },[filtro, prodRangoEtario, prodSexo])
 
 
@@ -64,7 +70,7 @@ export const ChartGroup = (props) => {
           </Select>
 
       </div>
-      <Linea  />
+      <Linea filtro={filtroLinea} />
     </Card>
     <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
     <Title level={3}>Vistas totales por producto</Title>
