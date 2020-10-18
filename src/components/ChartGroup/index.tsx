@@ -16,9 +16,13 @@ export const ChartGroup = (props) => {
 
   const [filtroRangoEtario, setFiltroRangoEtario] = useState(filtro);
   const [filtroSexo, setFiltroSexo] = useState(filtro);
+  const [filtroBarras, setFiltroBarras] = useState(filtro);
 
   const [prodRangoEtario, setProdRangoEtario] = useState(null as number);
   const [prodSexo, setProdSexo] = useState(null as number);
+  const [sexoBarras, setSexoBarras] = useState('');
+  const [rangoEtarioBarras, setRangoEtarioBarras] = useState('');
+
 
   useEffect(()=> {
     const productApi = new ProductApi()
@@ -41,7 +45,12 @@ export const ChartGroup = (props) => {
       ...filtro,
       producto: prodSexo
     })
-  },[filtro, prodRangoEtario, prodSexo])
+    setFiltroBarras({
+      ...filtro,
+      rango: rangoEtarioBarras,
+      sexo: sexoBarras
+    })
+  },[filtro, prodRangoEtario, prodSexo, sexoBarras, rangoEtarioBarras])
 
 
   return <div className={'chart-group'}>
@@ -70,13 +79,13 @@ export const ChartGroup = (props) => {
     <Title level={3}>Vistas totales por producto</Title>
       <div className={'filter-chart-group'}>
 
-          <Select style={{ margin: '20px auto', maxWidth: '400px' }} placeholder="Seleccionar sexo">
+          <Select style={{ margin: '20px auto', maxWidth: '400px' }} placeholder="Seleccionar sexo" onChange={(value) => {setProdRangoEtario(value as any)}} >
             <Option value="2">Masculino</Option>
             <Option value="1">Femenino</Option>
           </Select>
 
 
-          <Select style={{ margin: '20px auto', maxWidth: '400px' }} placeholder="Seleccionar Rango etario">
+          <Select style={{ margin: '20px auto', maxWidth: '400px' }} placeholder="Seleccionar Rango etario" onChange={(value) => {setProdRangoEtario(value as any)}} >
             <Option value="4">Menores a 25 años</Option>
             <Option value="3">De 25 a 40 años</Option>
             <Option value="2">De 40 a 60 años</Option>
