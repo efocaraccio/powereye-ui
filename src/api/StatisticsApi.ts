@@ -31,6 +31,10 @@ export class StatisticsApi extends BaseApi {
         return await this.apiPost('/graficoLineaImpacto',filtro)
     }
 
+    async getBarrasProductos (filtro: Filtro) {
+        return await this.apiPost('/graficoBarrasProductos',filtro)
+    }
+
 }
 
 export interface Filtro {

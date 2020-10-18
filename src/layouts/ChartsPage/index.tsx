@@ -15,8 +15,8 @@ interface FiltroFecha {
 }
 
 const fechaInicial: FiltroFecha = {
-  fechaInicio: "2020/09/09",
-  fechaFin: "2020/09/27",
+  fechaInicio: "2020/10/17",
+  fechaFin: "2020/10/30",
 }
 
 
