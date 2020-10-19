@@ -10,7 +10,7 @@ export const Home = () => {
 
   return <div className={'home'}>
     <Card style={{ width: '100%' }} className={'title-card'}>
-      <Title style={{ margin: 0, fontWeight: 500 }} level={2}>Nombre de la empresa</Title>
+      <Title style={{ margin: 0, fontWeight: 500 }} level={2}>Power Eye</Title>
     </Card>
     <Divider />
     <div className={'button-group'}>

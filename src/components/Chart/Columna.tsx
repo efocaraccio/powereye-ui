@@ -10,6 +10,12 @@ const Columna = (props) => {
   const [data, setData] = useState([]);
   const [products, setProducts] = useState(null);
 
+  const dataVacio = [
+    {
+      label: "",
+      value: 0
+    }
+  ]
   useEffect(()=> {
     const productApi = new ProductApi()
     productApi.getProducts().then((response)=> {
@@ -26,13 +32,16 @@ const Columna = (props) => {
     const statisticsApi = new StatisticsApi()
     console.log("filtro", filtro)
       statisticsApi.getBarrasProductos(filtro).then( response => {
-        if(response !== null){
+        if(response !== null && response !== 0){
         setData(response.map(item => {
           return {
             label: products.find(element => element.id === item.idProducto).label,
             value: item.vistas
           }
         }))
+      }
+      if(response.length === 0){
+        setData(dataVacio)
       }
       }).catch( err => {
         console.log(err);
