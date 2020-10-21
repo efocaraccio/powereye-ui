@@ -26,6 +26,7 @@ export const ChartGroup = (props) => {
   const [rangoEtarioBarras, setRangoEtarioBarras] = useState('');
   const [sexoLinea, setSexoLinea] = useState('');
   const [rangoEtarioLinea, setRangoEtarioLinea] = useState('');
+  const [prodLinea, setProdLinea] = useState(null as number);
 
   useEffect(()=> {
     const productApi = new ProductApi()
@@ -56,9 +57,10 @@ export const ChartGroup = (props) => {
     setFiltroLinea({
       ...filtro,
       rango: rangoEtarioLinea,
-      sexo: sexoLinea
+      sexo: sexoLinea,
+      producto: prodLinea
     })
-  },[filtro, prodRangoEtario, prodSexo, sexoBarras, rangoEtarioBarras, rangoEtarioLinea, sexoLinea])
+  },[filtro, prodRangoEtario, prodSexo, sexoBarras, rangoEtarioBarras, rangoEtarioLinea, sexoLinea, prodLinea])
 
 
   return <div className={'chart-group'}>
@@ -66,6 +68,11 @@ export const ChartGroup = (props) => {
     <Card style={{ margin: '20px auto', maxWidth: '1250px' }}>
       <Title level={3}>Impacto por día</Title>
       <div className={'filter-chart-group'}>
+
+      <Select className={'filter-chart-group'} placeholder="Seleccionar producto" onChange={(value) => {setProdLinea(value as any)}} >
+      <Option key={999} value={null}>{"Todos los Productos"}</Option>
+        { products && products.map( el => <Option key={el.id} value={el.id}>{el.label}</Option> )}
+      </Select>
 
           <Select style={{ margin: '20px auto', maxWidth: '400px' }} placeholder="Seleccionar sexo" onChange={(value) => {setSexoLinea(value as any)}}>
            <Option value="">Todos</Option>
