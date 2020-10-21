@@ -12,6 +12,12 @@ export const SexoCard = () => {
   };
 
   const onChange = e => {
+    var sexo
+    if(e.target.value==1)
+      sexo = '\"M\"'
+    else
+      sexo='\"F\"'
+    localStorage.setItem("valorSexo",sexo)
     console.log('radio checked', e.target.value);
   };
 
@@ -23,9 +29,7 @@ export const SexoCard = () => {
     <Radio style={radioStyle} value={2}>
     <Text keyboard>F</Text>
     </Radio>
-    <Radio style={radioStyle} value={3}>
-      <Text keyboard>Ambos</Text>
-    </Radio>
+  
   </Radio.Group>
   </Card>
 }
