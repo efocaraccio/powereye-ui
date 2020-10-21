@@ -4,6 +4,7 @@ import './index.scss';
 import { IndicatorCard } from '../IndicatorCard';
 import { StatisticsApi } from '../../api/StatisticsApi';
 import moment from 'moment';
+import { ButtonCard } from '../ButtonCard';
 
 const { RangePicker } = DatePicker;
 const { Text, Title } = Typography;
@@ -59,7 +60,7 @@ export const IndicatorGroup = (props) => {
                     onChange={onDateChange} />
     </Space>
     <div className={'indicator-row'}>
-      <IndicatorCard title={'Promedio de vistas diarias'} initialStat={promedio} />
+      <IndicatorCard title={'Promedio de atención diario'} initialStat={promedio} />
       <IndicatorCard title={'Personas que se detuvieron'} initialStat={detuvieron} />
       <IndicatorCard title={'Personas que ingresaron'} initialStat={ingresaron} />
     </div>
