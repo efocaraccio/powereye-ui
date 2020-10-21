@@ -13,25 +13,33 @@ export const PriorityConfig = () => {
   const priorityApi = new PriorityApi()
   return <div className={''}>
     <div style={{textAlign: 'center', marginBottom: '25px'}}>
-      <ConfigTable></ConfigTable>
+      
       <Title level={3}>Prioridad de vistas</Title>
       <Text>Configure la prioridad a la hora de calcular el impacto de una vista.</Text>
       <br/>
       <Text>A mayor prioridad de una catagoría, mayor impacto tendrá una vista que cumpla con los criterios seleccionados.</Text>
+      <Title level={1}>Configuración actual: </Title>
+      <ConfigTable></ConfigTable>
     </div>
     <div className={'priority-content'}>
       <SortableComponent/>
       <RangoEtarioCard/>
       <SexoCard/>
-      <Button
+      
+    </div>
+    <br></br>
+    
+    <div>
+    <Button
         onClick={()=>{guardar()}}
         type="primary"
         style={{
           marginBottom: 16,
+          left:"50%",
         }}
       >
         Guardar
-      </Button>
+    </Button>
     </div>
   </div>
 }
