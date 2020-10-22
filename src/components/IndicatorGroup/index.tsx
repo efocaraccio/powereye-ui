@@ -61,7 +61,7 @@ export const IndicatorGroup = (props) => {
     </Space>
     <div className={'indicator-row'}>
       <IndicatorCard title={'Promedio de atención diario'} initialStat={promedio} />
-      <IndicatorCard title={'Personas que se detuvieron'} initialStat={detuvieron} />
+      <IndicatorCard title={'Personas que pasaron caminando'} initialStat={detuvieron} />
       <IndicatorCard title={'Personas que ingresaron'} initialStat={ingresaron} />
     </div>
 
