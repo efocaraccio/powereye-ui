@@ -6,7 +6,14 @@ import { MenuOutlined } from '@ant-design/icons';
 
 const arrayMove = require('array-move');
 const { Text } = Typography;
-
+function getIndex(value, arr, prop) {
+  for(var i = 0; i < arr.length; i++) {
+      if(arr[i][prop] === value) {
+          return i;
+      }
+  }
+  return -1; //to handle the case where the value doesn't exist
+}
 const SortableItem = SortableElement(({value}) => <List.Item>
   <MenuOutlined style={{marginRight: '6px'}}/>
   <Text>{value}</Text>
@@ -29,19 +36,19 @@ const SortableList = SortableContainer(({items}) => {
 const initialItems = [
   {
     label: "Cantidad de vistas",
-    id: 1
+    id: 0
   },
   {
     label: "Rango etario",
-    id: 2
+    id: 1
   },
   {
     label: "Sexo",
-    id: 3
+    id: 2
   },
   {
     label: "Expresión",
-    id: 4
+    id: 3
   },
 ]
 
@@ -51,6 +58,16 @@ export const SortableComponent = () => {
 
   const onSortEnd = ({oldIndex, newIndex}) => {
     setItems(arrayMove(items, oldIndex, newIndex));
+    var array=arrayMove(items, oldIndex, newIndex)
+
+    localStorage.setItem("prioridadRangoEtario",getIndex("Rango etario",array,"label").toString())
+    localStorage.setItem("prioridadSexo",getIndex("Sexo",array,"label").toString())
+    localStorage.setItem("prioridadCantVistas",getIndex("Cantidad de vistas",array,"label").toString())
+    localStorage.setItem("prioridadExpresion",getIndex("Expresión",array,"label").toString())
+
+   
+    console.log(array)
+
   };
 
   return <SortableList items={items} onSortEnd={onSortEnd} />;

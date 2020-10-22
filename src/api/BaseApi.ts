@@ -18,6 +18,7 @@ export class BaseApi {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
+        "Host": "52.67.203.88:8080",
       },
     };
 

@@ -12,21 +12,24 @@ export const RangoEtarioCard = () => {
   };
 
   const onChange = e => {
+    localStorage.setItem("valorRangoEtario",e.target.value.toString())
+    //
+
     console.log('radio checked', e.target.value);
   };
 
   return <Card title={<Text strong>Selecciones qué rango etario priorizar</Text>} style={{border: '1px solid #d9d9d9;'}}>
   <Radio.Group onChange={onChange}>
-    <Radio style={radioStyle} value={1}>
+    <Radio style={radioStyle} value={0}>
       <Text keyboard>0 - 25</Text>
     </Radio>
-    <Radio style={radioStyle} value={2}>
+    <Radio style={radioStyle} value={1}>
     <Text keyboard>25 - 40</Text>
     </Radio>
-    <Radio style={radioStyle} value={3}>
+    <Radio style={radioStyle} value={2}>
       <Text keyboard>40 - 60</Text>
     </Radio>
-    <Radio style={radioStyle} value={4}>
+    <Radio style={radioStyle} value={3}>
       <Text keyboard>60 +</Text>
     </Radio>
   </Radio.Group>
