@@ -9,7 +9,7 @@ export const IndicatorCard = (props: IndicatorCardProps) => {
   //const [stat, setStat] = useState(initialStat);
   //const [loading, setLoading] = useState( initialStat !== 0 ? false : true );
 
-
+  
   return <Card className={'indicator-card'} >
     <Statistic
             style={{width: '200px'}}

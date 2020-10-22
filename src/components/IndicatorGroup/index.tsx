@@ -31,22 +31,25 @@ export const IndicatorGroup = (props) => {
       }
     }).catch( err => {
       console.log(err);
+      setPromedio(0)
     } );
 
     statisticsApi.getPersonasQueIngresaron(filtro).then( response => {
-      if(response !== null){
+      if(response !== null  && Number.isInteger(response)){
         setIngresaron(response)
       }
     }).catch( err => {
       console.log(err);
+      setIngresaron(0)
     } );
 
     statisticsApi.getPersonasDetuvieron(filtro).then( response => {
-      if(response !== null){
+      if(response !== null && Number.isInteger(response)){
         setDetuvieron(response)
       }
     }).catch( err => {
       console.log(err);
+      setDetuvieron(0)
     } );
   }, [filtro] )
 

@@ -33,43 +33,21 @@ const SortableList = SortableContainer(({items}) => {
   );
 });
 
-const initialItems = [
-  {
-    label: "Cantidad de vistas",
-    id: 0
-  },
-  {
-    label: "Rango etario",
-    id: 1
-  },
-  {
-    label: "Sexo",
-    id: 2
-  },
-  {
-    label: "Expresión",
-    id: 3
-  },
-]
 
-export const SortableComponent = () => {
-
-  const [ items, setItems ] = useState(initialItems)
+export const SortableComponent = (props) => {
 
   const onSortEnd = ({oldIndex, newIndex}) => {
-    setItems(arrayMove(items, oldIndex, newIndex));
-    var array=arrayMove(items, oldIndex, newIndex)
+    props.setItemsOrdenables(arrayMove(props.items, oldIndex, newIndex));
+    var array=arrayMove(props.items, oldIndex, newIndex)
 
-    localStorage.setItem("prioridadRangoEtario",getIndex("Rango etario",array,"label").toString())
-    localStorage.setItem("prioridadSexo",getIndex("Sexo",array,"label").toString())
-    localStorage.setItem("prioridadCantVistas",getIndex("Cantidad de vistas",array,"label").toString())
-    localStorage.setItem("prioridadExpresion",getIndex("Expresión",array,"label").toString())
-
-   
-    console.log(array)
+    props.setPrioridadConfig({
+      rangoEtario: getIndex("Rango etario",array,"label"),
+      prioridadSexo: getIndex("Sexo",array,"label"),
+      cantVistas: getIndex("Cantidad de vistas",array,"label")
+    })
 
   };
 
-  return <SortableList items={items} onSortEnd={onSortEnd} />;
+  return <SortableList  items={props.items} onSortEnd={onSortEnd} />;
 
 }

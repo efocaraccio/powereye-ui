@@ -3,7 +3,7 @@ import { Radio, Card, Typography } from 'antd';
 
 const { Text } = Typography
 
-export const RangoEtarioCard = () => {
+export const RangoEtarioCard = (props) => {
 
   const radioStyle = {
     display: 'block',
@@ -12,14 +12,12 @@ export const RangoEtarioCard = () => {
   };
 
   const onChange = e => {
-    localStorage.setItem("valorRangoEtario",e.target.value.toString())
-    //
-
-    console.log('radio checked', e.target.value);
+    props.onChange(e.target.value);
   };
 
-  return <Card title={<Text strong>Selecciones qué rango etario priorizar</Text>} style={{border: '1px solid #d9d9d9;'}}>
-  <Radio.Group onChange={onChange}>
+  console.log(props.value)
+  return <Card title={<Text strong>Selecciones qué rango etario priorizar</Text>} style={{border: '1px solid #d9d9d9'}}>
+  <Radio.Group onChange={onChange} value={props.value}>
     <Radio style={radioStyle} value={0}>
       <Text keyboard>0 - 25</Text>
     </Radio>

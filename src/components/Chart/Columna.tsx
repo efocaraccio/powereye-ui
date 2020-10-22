@@ -32,7 +32,7 @@ const Columna = (props) => {
     const statisticsApi = new StatisticsApi()
     console.log("filtro", filtro)
       statisticsApi.getBarrasProductos(filtro).then( response => {
-        if(response !== null && response !== 0){
+        if(response !== null && response !== 0 && Array.isArray(response)){
         setData(response.map(item => {
           return {
             label: products.find(element => element.id === item.idProducto).label,

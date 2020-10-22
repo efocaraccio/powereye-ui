@@ -3,7 +3,7 @@ import { Radio, Card, Typography } from 'antd';
 
 const { Text } = Typography
 
-export const SexoCard = () => {
+export const SexoCard = (props) => {
 
   const radioStyle = {
     display: 'block',
@@ -12,21 +12,15 @@ export const SexoCard = () => {
   };
 
   const onChange = e => {
-    var sexo
-    if(e.target.value==1)
-      sexo = '\"M\"'
-    else
-      sexo='\"F\"'
-    localStorage.setItem("valorSexo",sexo)
-    console.log('radio checked', e.target.value);
+    props.onChange(e.target.value);
   };
 
-  return <Card title={<Text strong>Selecciones qué sexo priorizar</Text>} style={{border: '1px solid #d9d9d9;'}}>
-  <Radio.Group onChange={onChange}>
-    <Radio style={radioStyle} value={1}>
+  return <Card title={<Text strong>Selecciones qué sexo priorizar</Text>} style={{border: '1px solid #d9d9d9'}}>
+  <Radio.Group onChange={onChange} value={props.value}>
+    <Radio style={radioStyle} value={'M'}>
       <Text keyboard>M</Text>
     </Radio>
-    <Radio style={radioStyle} value={2}>
+    <Radio style={radioStyle} value={'F'}>
     <Text keyboard>F</Text>
     </Radio>
   
