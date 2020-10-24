@@ -66,7 +66,7 @@ const Columna = (props) => {
     },
     meta: {
       label: {  alias: 'Productos' },
-      value: { alias: 'Vistas' },
+      value: { alias: 'Tiempo de atención' },
     },
     responsive: true,
   };
