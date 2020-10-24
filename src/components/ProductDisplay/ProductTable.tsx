@@ -31,7 +31,7 @@ export const ProductTable = () => {
     })
   },[])
 
-  
+
 
   /*
   * Functions to interact with a row of the table
@@ -39,7 +39,7 @@ export const ProductTable = () => {
   */
   const edit = record => {
     form.setFieldsValue({
-      
+
       ...record,
     });
     setEditingKey(record.key);
@@ -68,7 +68,7 @@ export const ProductTable = () => {
       const row = await form.validateFields();
       const newData = [...data];
       const index = newData.findIndex(item => key === item.key);
-      
+
       if (index > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
@@ -80,7 +80,7 @@ export const ProductTable = () => {
         productApi.editProduct(newItem).then((response)=> {
           setData(newData);
         })
-        
+
         setEditingKey('');
       } else {
         newData.push(row);
@@ -104,11 +104,6 @@ export const ProductTable = () => {
       title: 'Nombre',
       dataIndex: 'nombre',
       width: '30%',
-      editable: true,
-    },
-    {
-      title: 'Prioridad',
-      dataIndex: 'prioridad',
       editable: true,
     },
     {
@@ -183,7 +178,7 @@ export const ProductTable = () => {
     //console.log(JSON.parse(localStorage.getItem("imagen")))
     const prod = {
       nombre: values.nombre,
-      prioridad: parseInt(values.prioridad),
+      prioridad: 0,
       imagen: imgBase64.split(",")[1]
     }
     productApi.createProduct(prod).then( response => {

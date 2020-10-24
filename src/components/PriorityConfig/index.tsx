@@ -22,8 +22,15 @@ const RANGOSETARIOS = {
   ANCIANOS: 3
 }
 
+const RANGOSETARIOSTEXTOS = [
+  "0 a 25",
+  "25 a 40",
+  "40 a 60",
+  "60 +"
+]
+
 export const PriorityConfig = () => {
-  
+
   const [configData, setConfigData] = useState([]);
   const [edadConfig, setEdadConfig] = useState(0);
   const [sexoConfig, setSexoConfig] = useState("");
@@ -64,7 +71,7 @@ export const PriorityConfig = () => {
       prioridadSexo: prioridadConfig["prioridadSexo"],
       prioridadCantVistas: prioridadConfig["cantVistas"],
       prioridadExpresion: PRIORIDADES.LOW,
-     
+
       valorSexo: sexoConfig,
       valorRangoEtario: `${edadConfig}`,
       valorExpresion: 0
@@ -81,27 +88,31 @@ export const PriorityConfig = () => {
 
   return <div className={''}>
     <div style={{textAlign: 'center', marginBottom: '25px'}}>
-      
+
       <Title level={3}>Prioridad de vistas</Title>
       <Text>Configure la prioridad a la hora de calcular el impacto de una vista.</Text>
       <br/>
       <Text>A mayor prioridad de una catagoría, mayor impacto tendrá una vista que cumpla con los criterios seleccionados.</Text>
+      <br/>
+<Text strong>Configuración actual: { itemOrdenables.length > 0 ? itemOrdenables[0].label : ""} - { RANGOSETARIOSTEXTOS[edadConfig] } - { sexoConfig }</Text>
     </div>
     <div className={'priority-content'}>
       <SortableComponent setPrioridadConfig={setPrioridadConfig} items={itemOrdenables} setItemsOrdenables={setItemOrdenables}/>
       <RangoEtarioCard value={edadConfig} onChange={setEdadConfig}/>
       <SexoCard value={sexoConfig} onChange={setSexoConfig}/>
-      
+
     </div>
     <br></br>
-    
-    <div>
+
+    <div style={{
+          display: "flex",
+          justifyContent: "center"
+        }}>
     <Button
         onClick={()=>{guardar()}}
         type="primary"
         style={{
           marginBottom: 16,
-          left:"50%",
         }}
       >
         Guardar
