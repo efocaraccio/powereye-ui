@@ -26,7 +26,7 @@ export const ChartGroup = (props) => {
   const [rangoEtarioBarras, setRangoEtarioBarras] = useState('');
   const [sexoLinea, setSexoLinea] = useState('');
   const [rangoEtarioLinea, setRangoEtarioLinea] = useState('');
-  const [prodLinea, setProdLinea] = useState(null as number);
+  const [prodLinea, setProdLinea] = useState(0 as number);
 
   useEffect(()=> {
     const productApi = new ProductApi()
@@ -56,11 +56,11 @@ export const ChartGroup = (props) => {
     })
     setFiltroLinea({
       ...filtro,
-      rango: rangoEtarioLinea,
+      //rango: rangoEtarioLinea,
       sexo: sexoLinea,
       producto: prodLinea
     })
-  },[filtro, prodRangoEtario, prodSexo, sexoBarras, rangoEtarioBarras, rangoEtarioLinea, sexoLinea, prodLinea])
+  },[filtro, prodRangoEtario, prodSexo, sexoBarras, rangoEtarioBarras, sexoLinea, prodLinea])
 
 
   return <div className={'chart-group'}>
@@ -70,7 +70,7 @@ export const ChartGroup = (props) => {
       <div className={'filter-chart-group'}>
 
       <Select className={'filter-chart-group'} placeholder="Seleccionar producto" onChange={(value) => {setProdLinea(value as any)}} >
-      <Option key={999} value={null}>{"Todos los Productos"}</Option>
+      <Option key={999} value={0}>{"Todos los Productos"}</Option>
         { products && products.map( el => <Option key={el.id} value={el.id}>{el.label}</Option> )}
       </Select>
 
@@ -78,15 +78,6 @@ export const ChartGroup = (props) => {
            <Option value="">Todos</Option>
             <Option value="M">Masculino</Option>
             <Option value="F">Femenino</Option>
-          </Select>
-
-
-          <Select style={{ margin: '20px auto', maxWidth: '400px' }} placeholder="Seleccionar Rango etario" onChange={(value) => {setRangoEtarioLinea(value as any)}}>
-           <Option value="">Todos</Option>
-            <Option value="rango0025">Menores a 25 años</Option>
-            <Option value="rango2540">De 25 a 40 años</Option>
-            <Option value="rango4060">De 40 a 60 años</Option>
-            <Option value="rango60up">60 años o más</Option>
           </Select>
 
       </div>
