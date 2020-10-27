@@ -63,9 +63,9 @@ export const IndicatorGroup = (props) => {
                     onChange={onDateChange} />
     </Space>
     <div className={'indicator-row'}>
-      <IndicatorCard title={'Promedio de atención diario'} initialStat={promedio} />
+      <IndicatorCard title={'Promedio de atención diario (segundos)'} initialStat={promedio} />
       <IndicatorCard title={'Personas que pasaron caminando'} initialStat={detuvieron} />
-      <IndicatorCard title={'Personas que ingresaron'} initialStat={ingresaron} />
+      <IndicatorCard title={'Personas que ingresaron al local'} initialStat={ingresaron} />
     </div>
 
 

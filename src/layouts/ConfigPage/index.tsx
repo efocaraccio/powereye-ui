@@ -20,8 +20,8 @@ export type ConfigPages = 'priority' | 'products' | 'showcase' | 'sellers';
 
 export const ConfigPage = () => {
 
-  const [page, setPage] = useState(CONFIG_PAGES.SHOWCASE);
-
+  //const [page, setPage] = useState(CONFIG_PAGES.SHOWCASE);
+  const [page, setPage] = useState(CONFIG_PAGES.PRODUCTS);
   const changePage = (newPage: ConfigPages) => {
     setPage(newPage);
   }
