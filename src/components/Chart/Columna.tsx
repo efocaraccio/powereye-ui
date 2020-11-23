@@ -34,10 +34,12 @@ const Columna = (props) => {
       statisticsApi.getBarrasProductos(filtro).then( response => {
         if(response !== null && response !== 0 && Array.isArray(response)){
         setData(response.map(item => {
+          if(item.idProducto != null){
           return {
             label: products.find(element => element.id === item.idProducto).label,
             value: item.vistas
           }
+        }
         }))
       }
       if(response.length === 0){
