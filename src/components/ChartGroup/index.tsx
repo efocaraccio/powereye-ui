@@ -14,11 +14,11 @@ export const ChartGroup = (props) => {
   const {onDateChange, filtro} = props;
   const [products, setProducts] = useState(null);
 
-  const [filtroLinea, setFiltroLinea] = useState({...filtro, producto: 1})
+  const [filtroLinea, setFiltroLinea] = useState({...filtro, producto: 0})
 
   const [filtroRangoEtario, setFiltroRangoEtario] = useState(filtro);
   const [filtroSexo, setFiltroSexo] = useState(filtro);
-  const [filtroBarras, setFiltroBarras] = useState(filtro);
+  const [filtroBarras, setFiltroBarras] = useState({...filtro, producto: 0});
 
   const [prodRangoEtario, setProdRangoEtario] = useState(null as number);
   const [prodSexo, setProdSexo] = useState(null as number);
