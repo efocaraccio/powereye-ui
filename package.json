@@ -31,6 +31,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage": "/powereye-ui",
   "browserslist": {
     "production": [
       ">0.2%",
