@@ -4,7 +4,8 @@ import { Table, Input, InputNumber, Popconfirm, Form, Button, Space } from 'antd
 import { CreateProductModal } from './CreateProductModal';
 import { EditableCell } from './EditableCell';
 import { ProductApi } from '../../api/ProductApi';
-import Item from 'antd/lib/list/Item';
+import { CheckCircleOutlined } from '@ant-design/icons';
+
 
         // Reemplazar por use Effect que consulte los productos
 
@@ -25,6 +26,7 @@ export const ProductTable = () => {
           key: item.id,
           nombre: item.nombre,
           prioridad: item.prioridad,
+          multimedia: <CheckCircleOutlined style={{color: "green"}} />,
           sector: item.idZonaVidriera,
         }
       }))
@@ -119,7 +121,7 @@ export const ProductTable = () => {
     {
       title: 'Multimedia',
       dataIndex: 'multimedia',
-      editable: true,
+      editable: false,
     },
     {
       title: 'Acciones',
