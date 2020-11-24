@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.642a4b34.chunk.css",
+    "main.js": "/static/js/main.e6ed7728.chunk.js",
+    "main.js.map": "/static/js/main.e6ed7728.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b3f5b90d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b3f5b90d.js.map",
+    "static/css/2.d0affde7.chunk.css": "/static/css/2.d0affde7.chunk.css",
+    "static/js/2.faf6f74b.chunk.js": "/static/js/2.faf6f74b.chunk.js",
+    "static/js/2.faf6f74b.chunk.js.map": "/static/js/2.faf6f74b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.483f45107ae64feb65adf3a0d340e844.js": "/precache-manifest.483f45107ae64feb65adf3a0d340e844.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.d0affde7.chunk.css.map": "/static/css/2.d0affde7.chunk.css.map",
+    "static/css/main.642a4b34.chunk.css.map": "/static/css/main.642a4b34.chunk.css.map",
+    "static/js/2.faf6f74b.chunk.js.LICENSE.txt": "/static/js/2.faf6f74b.chunk.js.LICENSE.txt",
+    "static/media/PowerEyeLogoAndText.png": "/static/media/PowerEyeLogoAndText.4651b459.png",
+    "static/media/PowerEyeOnlyLogo.png": "/static/media/PowerEyeOnlyLogo.5f46b29e.png",
+    "static/media/PowerEyeTextLogo.png": "/static/media/PowerEyeTextLogo.dce1d84b.png",
+    "static/media/chart-color-bg.png": "/static/media/chart-color-bg.dccfe1ee.png",
+    "static/media/config-color-bg.png": "/static/media/config-color-bg.92441e2f.png",
+    "static/media/index.scss": "/static/media/glass.3d7c39c5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b3f5b90d.js",
+    "static/css/2.d0affde7.chunk.css",
+    "static/js/2.faf6f74b.chunk.js",
+    "static/css/main.642a4b34.chunk.css",
+    "static/js/main.e6ed7728.chunk.js"
+  ]
+}
